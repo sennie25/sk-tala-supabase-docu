@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SK TALA – Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="sk">SK</div><h1>TALA</h1>
+  <p class="sub">Admin Dashboard</p>
+</header>
+<main class="wide">
+
+    <div class="card" id="gate" style="max-width:420px;margin:14px auto">
+    <h2 class="tag">Admin Login</h2>
+    <form id="loginForm" autocomplete="off">
+      <label for="email">Admin email</label>
+      <input id="email" type="email" placeholder="admin@email.com" autocomplete="username" required>
+      <label for="pass">Password</label>
+      <input id="pass" type="password" placeholder="Enter password" autofocus>
+      <label style="display:flex;gap:8px;align-items:center;font-weight:400"><input type="checkbox" id="show" style="width:auto"> Show password</label>
+      <p id="err" style="color:#b3261e;margin:6px 0 0"></p>
+      <p><button class="btn" id="login" type="submit">Enter</button></p>
+    </form>
+  </div>
+
+  <div id="dash" class="hide">
+    <div class="topbar">
+      <h2 style="margin:0;color:var(--navy)">Submissions</h2>
+      <div>
+        <button class="btn alt sm" id="csv">Export CSV</button>
+        <button class="btn sm" id="logout">Log out</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b id="sTotal">0</b><span>Total submissions</span></div>
+      <div class="stat"><b id="sPeople">0</b><span>Participants</span></div>
+      <div class="stat"><b id="sPending">0</b><span>Pending review</span></div>
+      <div class="stat"><b id="sApproved">0</b><span>Approved</span></div>
+      <div class="stat"><b id="sPhotos">0</b><span>Photos uploaded</span></div>
+    </div>
+
+    <div class="card filters">
+      <input id="q" placeholder="Search name, grade & section, activity…">
+      <select id="fAct"><option value="">All activities</option></select>
+      <select id="fStatus"><option value="">All status</option><option>Pending</option><option>Approved</option><option>Rejected</option></select>
+      <input id="fDate" type="date">
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="mute" id="empty">No submissions yet.</p>
+  </div>
+</main>
+
+<!-- DETAIL MODAL -->
+<div class="modal hide" id="modal"><div class="box" id="box"></div></div>
+<div class="toast hide" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+<script src="storage.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

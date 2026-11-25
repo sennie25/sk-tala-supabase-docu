@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SK TALA – Upload Documentation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="sk">SK</div><h1>TALA</h1>
+  <p class="sub">Youth Participation and Leadership Passport</p>
+</header>
+<main>
+  <!-- PARTICIPANT UPLOAD FORM -->
+  <form class="card" id="form">
+    <h2 class="tag">★ Upload Your Documentation</h2>
+    <p class="mute">Fill in your details and upload photos from the activity you joined.</p>
+
+    <div class="row">
+      <div><label>Full Name *</label><input name="name" required autocomplete="name"></div>
+      <div><label>Age *</label><input name="age" type="number" min="10" max="40" required></div>
+    </div>
+    <div class="row">
+      <div><label>Contact No.</label><input name="contact" type="tel"></div>
+      <div><label>Grade &amp; Section *</label><input name="gradeSection" required placeholder="e.g. Grade 11 - Newton"></div>
+    </div>
+    <div class="row">
+      <div><label>Activity Joined *</label><input name="activity" required placeholder="e.g. Clean-up Drive"></div>
+      <div><label>Date of Activity *</label><input name="date" type="date" required></div>
+    </div>
+    <label>My Role</label>
+    <select name="role">
+      <option>Participant</option><option>Volunteer</option><option>Activity Organizer</option><option>Team Leader</option><option>Other</option>
+    </select>
+    <label>Short description of what you did</label>
+    <textarea name="notes"></textarea>
+
+    <label>Photos / Documentation * <span class="mute">(max 6)</span></label>
+    <div class="drop" id="drop">📷 Tap to choose photos<small>JPG or PNG from your gallery or camera</small></div>
+    <input type="file" id="file" accept="image/*" multiple hidden>
+    <div class="thumbs" id="thumbs"></div>
+
+    <p><button class="btn" id="send" type="submit">Submit documentation</button></p>
+  </form>
+
+  <!-- SUCCESS -->
+  <div class="card done hide" id="done">
+    <div class="big">★</div>
+    <h2>Thank you!</h2>
+    <p>Your documentation was submitted. An SK officer will review it.</p>
+    <p>Your reference code:</p>
+    <div class="ref" id="ref"></div>
+    <p><button class="btn alt" id="again">Submit another</button></p>
+  </div>
+</main>
+<div class="toast hide" id="toast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+<script src="storage.js"></script>
+<script src="upload.js"></script>
+</body>
+</html>
